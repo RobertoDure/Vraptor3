@@ -11,7 +11,7 @@ import br.com.dao.ProdutoDao;
 import br.com.entity.Produto;
 
 @Resource
-//@Path("/oia")
+@Path("/oia")
 public class ProdutosController {
 	
 private final ProdutoDao dao;
@@ -25,11 +25,10 @@ private final Result result;
 	}
 	
 	public void teste(){
-		System.out.println("Ol· mundo");
+		System.out.println("Ol√° mundo");
 	}
-/*	@Get
+	@Get
 	@Path("/listartudo")
-*/
 	public List<Produto> lista(){
 		return dao.listaTudo();
 	}
@@ -40,15 +39,15 @@ private final Result result;
 	
 	public void adiciona(Produto produto){
 		dao.salvar(produto);
-		//ìComo resultado, quero redirecionar para a lÛgica ProdutosController.lista()î.
-		//essa forma È feita para redirecionar p/ outro controller. result.redirectTo(ProdutosController.class).lista();
-		//como È para um mesmo controller pode ser feito dessa forma abaixo!
+		//‚ÄúComo resultado, quero redirecionar para a l√≥gica ProdutosController.lista()‚Äù.
+		//essa forma √© feita para redirecionar p/ outro controller. result.redirectTo(ProdutosController.class).lista();
+		//como √© para um mesmo controller pode ser feito dessa forma abaixo!
 		result.redirectTo(this).lista();
 		
 	}
 	
-	/* @Get  
-	    @Path("/produtos/{id}")  */
+	 @Get  
+	 @Path("/produtos/{id}")
 	public void altera(Produto produto){
 		dao.atualizar(produto);
 		result.redirectTo(this).lista();
