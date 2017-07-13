@@ -11,7 +11,7 @@ import br.com.dao.ProdutoDao;
 import br.com.entity.Produto;
 
 @Resource
-@Path("/oia")
+@Path("/hi")
 public class ProdutosController {
 	
 private final ProdutoDao dao;
